@@ -1,0 +1,1 @@
+-- Populate burgers_db (brugers) wiht at least 3 entries
