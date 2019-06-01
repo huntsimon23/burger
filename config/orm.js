@@ -13,7 +13,22 @@ var orm = {
             cb(res);
         });
     },
-    insertOne: function()
-}
+    insertOne: function(table, columns, values, cb) {
+        var queryString = "INSERT INTO " + table + " (" + columns + ") VALUES (??)";
+        connection.query(queryString, values, function(err, res) {
+            if (err) throw err; 
+            cb(res);
+        });
+    },
+    updateOne: function(table, colName, newVal, condition, cb) {
+        var queryString = "UPDATE " + table + " SET " + colName + " = " + newVal + condition;
+        connection.query(queryString, function (err, res) {
+            if (err) throw err;
+            cb(res);
+        })
+    }
+
+};
 
 // * Export the ORM object in `module.exports`.
+module.exports = orm;
