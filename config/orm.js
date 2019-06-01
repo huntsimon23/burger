@@ -7,21 +7,21 @@ var connection = require("../config/connection.js");
 //   * `updateOne()`
 var orm = {
     selectAll: function(table, cb) {
-        var queryString = "SELECT * FROM" + table + ";";
+        var queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function(err, res) {
             if (err) throw err; 
             cb(res);
         });
     },
     insertOne: function(table, columns, values, cb) {
-        var queryString = "INSERT INTO " + table + " (" + columns + ") VALUES (??)";
+        var queryString = "INSERT INTO " + table + " (" + columns.toString() + ") VALUES (?)";
         connection.query(queryString, values, function(err, res) {
             if (err) throw err; 
             cb(res);
         });
     },
-    updateOne: function(table, colName, newVal, condition, cb) {
-        var queryString = "UPDATE " + table + " SET " + colName + " = " + newVal + condition;
+    updateOne: function(condition, cb) {
+        var queryString = "UPDATE burgers SET devoured = true " + condition;
         connection.query(queryString, function (err, res) {
             if (err) throw err;
             cb(res);
