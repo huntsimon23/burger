@@ -2,16 +2,20 @@
 
 
      \* Create a button in `index.handlebars` that will submit the user input into the database. --}}
-<h1>Welcome to Goodburgers...Eat a Good Burger!</h1>
-<div class="container">
+<div class="jumbotron jumbotron-fluid">
+     <h2 class="text-center">Welcome to Goodburgers!</h2>
+</div>
+<div class="container container-fluid">
 
 <div class="row">
 <div class="col">
-     <h2>Care to add to the collection?</h2>
-     <form action="/burgers" method="POST">
+     <h4 class="text-center">What can we make for you?</h4>
+     <form class="text-center" action="/burgers" method="POST">
           <input type="text" id="name" name="burger_name" placeholder="Yum!">
           <button type="submit">Add This Burger to the Menu!</button>
     </form>
+<hr>
+<hr>
 </div>
 </div>
 
@@ -35,7 +39,7 @@
 </ul>
 </div>
 <div class="col 6">
-     <h3>Someone ate these already!</h3>
+     <h3>Wall of Burger Fame</h3>
 <ul>
 {{#each burgers}}
      {{#if this.devoured}}
